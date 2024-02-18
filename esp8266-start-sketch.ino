@@ -22,6 +22,9 @@ void setup() {
   wifiManager.addParameter(&custom_subnet);
   wifiManager.addParameter(&custom_dns);
 
+  // Установка пароля для точки доступа
+  wifiManager.setAPConfig(WiFiManagerParameter("ap_password", "AP Password", "", 15));
+
   // Запуск WiFiManager
   if (!wifiManager.autoConnect("ESP8266AP")) {
     Serial.println("Failed to connect and hit timeout");
